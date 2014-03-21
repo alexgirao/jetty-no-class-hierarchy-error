@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<!-- reference: jetty-hello/Misc-Jetty-Xml-Configuration/jetty-maven-plugin-equiv.xml -->
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Ref refid="Contexts">
+    <Call name="addHandler">
+      <Arg>
+        <New class="org.eclipse.jetty.webapp.WebAppContext">
+          <Call name="prependServerClass"><Arg>-org.eclipse.jetty.util.</Arg></Call>
+          <Call name="prependServerClass"><Arg>-org.eclipse.jetty.servlets.</Arg></Call>
+          <Set name="war">target/myproject-1.0.0.war</Set>
+          <Set name="contextPath">/</Set>
+          <Set name="throwUnavailableOnStartupException">true</Set>
+        </New>
+      </Arg>
+    </Call>
+  </Ref>
+</Configure>
